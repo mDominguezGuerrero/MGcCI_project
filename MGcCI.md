@@ -934,4 +934,4 @@ Binding both plots:
 (Figure4 <- ggarrange(plot_genes, umap, ncol = 2, labels = c("A", "B")))
 ```
 
-![](MGcCI_completo_files/figure-gfm/Figure%204-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/Figure%204-1.png)<!-- -->
