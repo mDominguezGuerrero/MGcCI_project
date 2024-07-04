@@ -14,6 +14,7 @@ Data can be accessed on request to the authors.
 - **R/**: This folder contains functions developed for analysis.
 - **MGcCI.md** and **MGcCI.Rmd**: The main markdown file with all
   analyses.
+- **MGcCI_files/**: This folder contais figures necessary to load **MGcCI.md**.
 
 # Getting Started
 
