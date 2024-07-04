@@ -7,7 +7,7 @@ This repository contains the code and documentation for the
 bioinformatic analysis of “single-nuclei RNA sequencing” from mouse
 brain with microglia deficient in mitochondrial complex I.
 
-Data can be accessed on request to the authors.
+Data can be accessed upon request to the authors (maximodogu@gmail.com).
 
 # Repository Structure
 
