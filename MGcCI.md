@@ -64,7 +64,7 @@ between both variables:
         plot.title = element_blank()))
 ```
 
-![](script_completo_files/figure-gfm/CTR%20pre-process%20plots-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/CTR%20pre-process%20plots-1.png)<!-- -->
 
 ``` r
 (feature_CTR_pre <- FeatureScatter(CTR, feature1 = "nCount_RNA", feature2 = "nFeature_RNA") + 
@@ -77,7 +77,7 @@ between both variables:
         plot.title = element_text(size = rel(0.7), angle = 00)))
 ```
 
-![](script_completo_files/figure-gfm/CTR%20pre-process%20plots-2.png)<!-- -->
+![](MGcCI_files/figure-gfm/CTR%20pre-process%20plots-2.png)<!-- -->
 
 Now, we will remove unwanted cells from the dataset, based on the next
 rule: we will remove cells which gene expression is above or below two
@@ -97,7 +97,7 @@ After filtering, we can visualize again the plots:
         plot.title = element_blank()))
 ```
 
-![](script_completo_files/figure-gfm/CTR%20post-process%20plots-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/CTR%20post-process%20plots-1.png)<!-- -->
 
 ``` r
 (feature_CTR_post <- FeatureScatter(CTR, feature1 = "nCount_RNA", feature2 = "nFeature_RNA") + 
@@ -110,7 +110,7 @@ After filtering, we can visualize again the plots:
         plot.title = element_text(size = rel(0.7), angle = 00)))
 ```
 
-![](script_completo_files/figure-gfm/CTR%20post-process%20plots-2.png)<!-- -->
+![](MGcCI_files/figure-gfm/CTR%20post-process%20plots-2.png)<!-- -->
 
 We repeat the same processing: first, we create the Seurat Object:
 
@@ -129,7 +129,7 @@ We visualize the key plots:
         plot.title = element_blank()))
 ```
 
-![](script_completo_files/figure-gfm/MUT%20pre-process%20plots-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/MUT%20pre-process%20plots-1.png)<!-- -->
 
 ``` r
 (feature_MUT_pre <- FeatureScatter(MUT, feature1 = "nCount_RNA", feature2 = "nFeature_RNA") + 
@@ -142,7 +142,7 @@ We visualize the key plots:
         plot.title = element_text(size = rel(0.7), angle = 00)))
 ```
 
-![](script_completo_files/figure-gfm/MUT%20pre-process%20plots-2.png)<!-- -->
+![](MGcCI_files/figure-gfm/MUT%20pre-process%20plots-2.png)<!-- -->
 
 Filter:
 
@@ -160,7 +160,7 @@ And visualize after the filtering:
         plot.title = element_blank()))
 ```
 
-![](script_completo_files/figure-gfm/MUT%20post-process%20plots-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/MUT%20post-process%20plots-1.png)<!-- -->
 
 ``` r
 (feature_MUT_post <- FeatureScatter(MUT, feature1 = "nCount_RNA", feature2 = "nFeature_RNA") + 
@@ -173,7 +173,7 @@ And visualize after the filtering:
         plot.title = element_text(size = rel(0.7), angle = 00)))
 ```
 
-![](script_completo_files/figure-gfm/MUT%20post-process%20plots-2.png)<!-- -->
+![](MGcCI_files/figure-gfm/MUT%20post-process%20plots-2.png)<!-- -->
 
 Combining all plots:
 
@@ -184,7 +184,7 @@ Combining all plots:
                  ncol = 4, nrow = 2))
 ```
 
-![](script_completo_files/figure-gfm/QC%20plot-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/QC%20plot-1.png)<!-- -->
 
 Once we have filtered the data, we will merge the data in only one
 Seurat Object:
@@ -312,7 +312,7 @@ Plotting the results:
         legend.position = "none")) 
 ```
 
-![](script_completo_files/figure-gfm/plot%20brain%20UMAP-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/plot%20brain%20UMAP-1.png)<!-- -->
 
 Furthermore, the clusters identified by scType are:
 
@@ -350,7 +350,7 @@ Microglia_Seurat <- subset(harmonized_seurat, customclassif == "Microglial cells
         legend.text = element_text(size = rel(0.7),  angle = 00)))
 ```
 
-![](script_completo_files/figure-gfm/subset%20Microglia%20Seurat-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/subset%20Microglia%20Seurat-1.png)<!-- -->
 
 ## Monocle3 workflow
 
@@ -404,7 +404,7 @@ cds <- cluster_cells(cds, cluster_method = "leiden",
 plot_cells(cds, color_cells_by="partition", group_cells_by="partition")
 ```
 
-![](script_completo_files/figure-gfm/cluster%20cds-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/cluster%20cds-1.png)<!-- -->
 
 We find top markers:
 
@@ -447,7 +447,7 @@ Once the identification is done, we can plot the UMAP:
         axis.title.y = element_text(size = rel(0.7), angle = 90)))
 ```
 
-![](script_completo_files/figure-gfm/brain%20umap%20cds-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/brain%20umap%20cds-1.png)<!-- -->
 
 ``` r
 cell_types <- as.data.frame(table(colData(brain_cds)$cluster_ext_type))
@@ -518,7 +518,7 @@ load("R/Microglia_Monocle.RData")
           axis.title.y = element_text(size = rel(0.7), angle = 90)))
 ```
 
-![](script_completo_files/figure-gfm/microglia%20umap%20cds-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/microglia%20umap%20cds-1.png)<!-- -->
 
 ## Plotting all the results
 
@@ -539,7 +539,7 @@ umap_microglia <- ggarrange(umap_Microglia_Seurat, umap_Microglia_Monocle,
                      nrow = 2))
 ```
 
-![](script_completo_files/figure-gfm/Figure%201-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/Figure%201-1.png)<!-- -->
 
 # Differential Analysis between Mutant (CI-deficient) and Control in Microglia Cells
 
@@ -580,7 +580,7 @@ use `EnhancedVolcano` package:
 )
 ```
 
-![](script_completo_files/figure-gfm/volcano%20DEGs-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/volcano%20DEGs-1.png)<!-- -->
 
 ## Finding Significantly Expressed Genes (SEGs)
 
@@ -743,7 +743,7 @@ VennPlot <- ggplot() +
                      ncol = 2, nrow = 1,align = "h"))
 ```
 
-![](script_completo_files/figure-gfm/plot%20Figure%202-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/plot%20Figure%202-1.png)<!-- -->
 
 # Study of Microglia Subpopulations through Trajectory Analysis
 
@@ -787,7 +787,7 @@ plot_cells(brain_cds,
            color_cells_by="cluster_ext_type")
 ```
 
-![](script_completo_files/figure-gfm/load%20mutant%20data-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/load%20mutant%20data-1.png)<!-- -->
 
 Because we are working with Monocle3, it is necessary to choose manually
 the cells from Microglia:
@@ -832,7 +832,7 @@ for(i in 1:2) {
 }
 ```
 
-![](script_completo_files/figure-gfm/modules%20Microglia-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/modules%20Microglia-1.png)<!-- -->
 
 Once the heatmap is plotted, we can see that there are two different
 clusters (one of them with an interesting differentiation). Now we will
@@ -905,7 +905,7 @@ Microglia <- learn_graph(Microglia, verbose = FALSE)
                     group_cells_by = "cluster_MicrogliaType"))
 ```
 
-![](script_completo_files/figure-gfm/assignment-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/assignment-1.png)<!-- -->
 
 Finally, we want to extract the most expressed genes in each cluster:
 
@@ -926,7 +926,7 @@ top_specific_marker_ids <- unique(top_specific_markers %>% pull(gene_id))
                     max.size=3) + theme(axis.title.x = element_blank()))
 ```
 
-![](script_completo_files/figure-gfm/top%20genes%20cluster-1.png)<!-- -->
+![](MGcCI_files/figure-gfm/top%20genes%20cluster-1.png)<!-- -->
 
 Binding both plots:
 
@@ -934,4 +934,4 @@ Binding both plots:
 (Figure4 <- ggarrange(plot_genes, umap, ncol = 2, labels = c("A", "B")))
 ```
 
-![](script_completo_files/figure-gfm/Figure%204-1.png)<!-- -->
+![](MGcCI_completo_files/figure-gfm/Figure%204-1.png)<!-- -->
